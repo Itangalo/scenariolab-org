@@ -66,6 +66,8 @@ header.masthead {
 }
 /* The tellings of the same material, side by side under the masthead. */
 .tabs { display: flex; flex-wrap: wrap; gap: 0.35rem; padding-top: 0.9rem; margin-bottom: 2.5rem; }
+/* With one telling there is nothing to switch between; the bar goes, the space stays. */
+.tabs-gap { height: 2.5rem; }
 .tab {
   font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
@@ -501,6 +503,13 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 }
 
 /* Standalone only: the page sits on a site, and needs a way back to it. */
+.masthead .sitenav {
+  flex-basis: 100%;
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent); text-decoration: none;
+}
+.masthead .sitenav:hover { text-decoration: underline; text-underline-offset: 3px; }
 footer.site {
   display: flex; flex-wrap: wrap; gap: 0.6rem 1.25rem; align-items: baseline;
   margin-top: 4rem; padding-top: 1.25rem; border-top: 1px solid var(--rule);
@@ -516,14 +525,11 @@ footer.site a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 <div class="wrap">
   <header class="masthead">
+    <a class="sitenav" href="/">&larr; Scenario Lab</a>
     <h1>Europe 2032</h1>
     <span class="sub">A simulated decision &middot; 2026&ndash;2032</span>
   </header>
-  <div class="tabs" role="tablist" aria-label="Tellings of the same material">
-    <button class="tab" type="button" id="tab-story" role="tab" data-view="story"
-            aria-controls="view-story" aria-selected="true" tabindex="0">The story</button>
-
-  </div>
+  <div class="tabs-gap"></div>
   <div class="floating">
     <button class="js-compare restart" type="button">Compare simulations</button>
     <button class="js-sim restart" type="button">Simulation data</button>
