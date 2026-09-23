@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scenario Lab</title>
+<meta name="description" content="Scenario Lab uses language models to run the same uncertain future many times over, to see which decisions hold up across the futures that emerge.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scenario Lab">
+<meta property="og:title" content="Scenario Lab">
+<meta property="og:description" content="Scenario Lab uses language models to run the same uncertain future many times over, to see which decisions hold up across the futures that emerge.">
+<meta property="og:url" content="https://scenariolab.org/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Spectral:wght@300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Same palette and type as the Europe 2032 reader, so the two read as one site. */
+:root {
+  --ground: #eef1f2;
+  --surface: #ffffff;
+  --ink: #12181a;
+  --muted: #57646a;
+  --faint: #8a979c;
+  --rule: #d5dcde;
+  --accent: #0f5d6b;
+  --accent-soft: #e3eff0;
+  --measure: 36rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #0e1416; --surface: #151d20; --ink: #e7edee; --muted: #97a6ab;
+    --faint: #6c7c81; --rule: #243135; --accent: #5cb8b2; --accent-soft: #16302f;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font-family: Spectral, Georgia, "Times New Roman", serif;
+  font-size: 19px; line-height: 1.62; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: var(--measure); margin: 0 auto; padding: 0 1.25rem 4rem; }
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+}
+header { padding: 2.5rem 0 0; color: var(--muted); }
+h1, h2 { font-family: Newsreader, Georgia, serif; font-weight: 600; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 6vw, 2.8rem); margin: 2.5rem 0 1rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.35rem; margin: 3rem 0 0.5rem; }
+.lede { font-size: 1.15rem; color: var(--muted); margin: 0 0 2.5rem; }
+a { color: var(--accent); text-underline-offset: 3px; }
+.feature {
+  display: block; background: var(--surface); border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent); border-radius: 4px;
+  padding: 1.5rem 1.5rem 1.4rem; color: var(--ink); text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.feature:hover { border-color: var(--accent); transform: translateY(-1px); }
+.feature .mono { color: var(--faint); }
+.feature h2 { margin: 0.4rem 0 0.5rem; font-size: 1.7rem; }
+.feature p { margin: 0 0 1rem; }
+.feature .go { color: var(--accent); font-weight: 600; }
+.note {
+  background: var(--accent-soft); border-radius: 4px; padding: 1rem 1.25rem;
+  margin-top: 3rem; font-size: 0.95rem;
+}
+.note p { margin: 0; }
+footer {
+  margin-top: 4rem; padding-top: 1.25rem; border-top: 1px solid var(--rule);
+  color: var(--faint); font-size: 0.85rem;
+}
+footer p { margin: 0 0 0.4rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mono">Scenario Lab</header>
+
+  <h1>Run the future more than once</h1>
+  <p class="lede">Scenario Lab uses language models to simulate how decisions play out over time. It runs the same starting point many times, across worlds that differ in ways nobody can see yet.</p>
+
+  <a class="feature" href="/europe-2032/">
+    <span class="mono">Interactive scenario</span>
+    <h2>Europe 2032</h2>
+    <p>You set the European Union's AI policy from 2027 to 2032 without knowing which AI trajectory you are on. Three decision points and three hidden worlds, built from several hundred simulation runs.</p>
+    <span class="go">Read Europe 2032 &rarr;</span>
+  </a>
+
+  <h2>How it works</h2>
+  <p>You describe a world in plain text: its actors, their goals, the starting situation and the events that might occur. A few quantitative variables keep the world honest. Political capital runs out, programmes take time to build, and earlier choices limit later ones. Language models play the actors, and another model acts as referee and decides what happens next.</p>
+
+  <h2>Why many runs</h2>
+  <p>A single scenario convinces because it is specific. For the same reason, it cannot tell you how likely it is or what could have happened instead. Running many simulations from the same premises shows which outcomes keep recurring, which assumptions matter, and which decisions hold up across very different futures.</p>
+  <p>This is the idea behind Robust Decision Making, a method long used in climate and water policy. It has needed a formal model of the system, and fields like AI governance have none. Language models can stand in for that model. The result is not a forecast, and the models bring biases of their own. Because runs are cheap, those weaknesses can be tested instead of taken on trust.</p>
+
+  <div class="note">
+    <p><strong>In development:</strong> support for running scenario games live, with people in the room. If you would like to try it with your team, write to johan@falkai.org.</p>
+  </div>
+
+  <footer>
+    <p>Scenario Lab is an open-source project by Johan Falk. <a href="https://github.com/Itangalo/scenario-lab">Source on GitHub</a>.</p>
+    <p>This page was drafted by Echo, Johan's AI assistant.</p>
+  </footer>
+</div>
+</body>
+</html>
