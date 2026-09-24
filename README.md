@@ -18,6 +18,8 @@ python3 scripts/build_story.py scenarios/europe-2032 --standalone \
 
 Then commit and push here. GitHub Pages deploys on push.
 
+(ECHO 2026-09-24) The footer's "Updated" date is the latest commit in Scenario Lab that changed the story's content, linked to that commit on GitHub. Commit and push Scenario Lab before building, or the link points to a commit GitHub does not have yet; the build warns when story files are uncommitted.
+
 ## DNS
 
 The domain is registered at Inleed. The apex points to GitHub Pages:
