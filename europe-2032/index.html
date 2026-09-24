@@ -530,7 +530,12 @@ footer.site a:hover { text-decoration: underline; text-underline-offset: 3px; }
     <h1>Europe 2032</h1>
     <span class="sub">A simulated decision &middot; 2026&ndash;2032</span>
   </header>
-  <div class="tabs-gap"></div>
+  <div class="tabs" role="tablist" aria-label="Tellings of the same material">
+    <button class="tab" type="button" id="tab-story" role="tab" data-view="story"
+            aria-controls="view-story" aria-selected="true" tabindex="0">The story</button>
+    <button class="tab" type="button" id="tab-findings" role="tab" data-view="findings"
+            aria-controls="view-findings" aria-selected="false" tabindex="-1">Findings</button>
+  </div>
   <div class="floating">
     <button class="js-compare restart" type="button">Compare simulations</button>
     <button class="js-sim restart" type="button">Simulation data</button>
@@ -559,11 +564,45 @@ footer.site a:hover { text-decoration: underline; text-underline-offset: 3px; }
     </div>
     <div class="pop-body" id="pop-body"></div>
   </dialog>
-
+  <div class="altview" id="view-findings" role="tabpanel" aria-labelledby="tab-findings" tabindex="0" hidden>
+    <div class="note preamble"><p>An analysis of the 150 start-to-end simulations behind the story – 50 per world – asking what leads to catastrophes, and what the models invented on their own.</p></div>
+    <article><h2><strong>What 150 simulations of Europe 2032 show</strong></h2>
+<p>The interactive story Europe 2032 is a showcase for LLM-powered scenario gaming: storytelling built on branching simulations, not an analysis of the Europe 2032 worlds.</p>
+<p>In parallel to the simulations for the stories, though, there are 150 start-to-end simulations of the Europe 2032 worlds – 50 for each of the three underlying worlds:</p>
+<ul><li><strong>Acceleration</strong> (A), where recursively self-improving AI and artificial general intelligence are likely within 5–10 years.</li><li><strong>Verification-bounded</strong> (V), where AI becomes superhuman only in math, coding and other areas with &quot;verifiable rewards&quot;.</li><li><strong>Plateau</strong> (P), where AI progress stalls.</li></ul>
+<p>Here is an analysis of what those simulations tell us. The analysis focuses mainly on what leads to or prevents catastrophic events, but also how events and actions that the LLMs themselves invented affected the world.</p>
+<p>One corpus note: the comparison popups in the published story are built from 160 runs, not 150 – including ten pilot runs. A reader who opens them will see numbers slightly diluted next to the ones here.</p>
+<h3>For catastrophic events, the scripted mechanics dominate</h3>
+<p>The short story: <strong>To the first order, the world is explained by the mechanics written into the scenario.</strong></p>
+<p>32 of 150 runs (21%) suffer at least one catastrophe. The occurrence is almost completely explained by AI acceleration: 29 of the runs with catastrophic events are found in the A worlds, 2 in the V worlds and 1 in the P worlds.</p>
+<p>These catastrophic events were written to only be possible at AI capability above 80 (catastrophic loss of control), 75 (war) and 65 (catastrophic bio incident). The underlying mechanics make AI capabilities reach 86–100 in A while V and P top out at around 70. Which worlds have catastrophic events is thus basically an effect of how the scenario was written from the start.</p>
+<p>There are more clearly visible effects of the conditions written into the scenario&#x27;s DNA:</p>
+<ul><li>War was scripted to be more likely when recursively self-improving AI was triggered (the case for 19 of 20 wars), and also more likely after Taiwan blockades (8 of 20) and increased export controls (7 of 20).</li><li>Catastrophic loss of control was scripted to be more likely after evaluation anomalies or loss-of-control incidents (present in 13 of 15), and the risk is doubled if AI safety is below 45. That condition held in all 15 cases, but it tells us little: AI safety falls below 45 in every A world.</li><li>Catastrophic bio incidents were scripted to be more likely after bio uplift findings or bio incidents (present in 10 of 14).</li></ul>
+<p>Single-event precursors are weak predictors on their own, though. It is the combination of high capability <em>and</em> probability-raising events that kills.</p>
+<p>One thing decreases the probability of catastrophic events: An AI agreement between the US and China should halve the probability of war, according to the scenario rules. In the A worlds with such agreements, the war rate was 1/3 instead of 1/2 (11 of 32 runs with an agreement, against 9 of 18 without – small numbers, so hold lightly, and a smaller drop than the &quot;halve&quot; in the rules).</p>
+<h4>Actions by the EU don&#x27;t matter much</h4>
+<ul><li>Some mitigating measures from the EU halve some catastrophic probabilities, but the measures are rarely finished (e.g. only ~2 finished category-3 restrictions on bio-capable AI in 150 runs) and the aggressive dynamics of the A worlds dominate. A fair summary is that after 2030 or so, nothing the EU builds keeps catastrophes away in the A worlds. There are some signs that early measures mitigating bio risks actually prevent catastrophic bio incidents, though. (Of the 19 runs holding some kind of bio screening – mostly finished category-6 detection, and 14 of the 19 on the V and P arms where bio catastrophes barely occur – none overlap with the 14 runs with catastrophic bio incidents. Within the A worlds alone the comparison is 0 of 5 holders against 11 of 45, too thin to carry the claim.)</li><li>EU diplomacy efforts increase the likelihood of an agreement between the US and China, which in turn reduces the catastrophic risks. But the effect is very modest.</li></ul>
+<p><strong>In all, these findings are reassuring since they say that the built-in mechanics work. But they aren&#x27;t that interesting: they reflect starting points, not conclusions.</strong></p>
+<h3>The emergent dynamics</h3>
+<p>Across the 150 runs (1950 turns), the game master LLM invented 331 different ids for emergent events, firing 387 times. What do they look like?</p>
+<h4>Data centre protests</h4>
+<p>Protests at sites for data centres or other AI infrastructure are the biggest category, appearing in 97 of 1950 turns. They appear in turns where public sentiment drops more than average (−3.62 vs −2.30), while AI sovereignty (−0.62 vs −0.58) and AI capabilities (+1.72 vs +1.83) are basically unaffected.</p>
+<p>There are 18 turns with sabotage against infrastructure sites, which correlates with loss of AI sovereignty (−1.94 vs −0.59 on average).</p>
+<p>In Scenario Lab the events are determined before the metrics are updated, so the game master seems to treat these events as causes of the metric drops. Whether they are causes in any stronger sense is harder to say: the same model writes the events and then scores the metrics.</p>
+<h4>Unscripted early warnings</h4>
+<p>Some emergent events cluster <em>before</em> catastrophes in the A worlds, although the numbers are small (eight runs). Pre-catastrophe and catastrophe-free turns alike counted in the A worlds only:</p>
+<ul><li>Raised or repriced insurance is 4.3 times as common in the turns leading up to catastrophes, compared to catastrophe-free turns.</li><li>Leaks or coverup revelations are 3.2 times as common.</li></ul>
+<p>&quot;Insurance retreat predicts doom&quot; is nowhere in the scenario rules, but the AI game master seems to reach for market and revelation language when a world is coming apart.</p>
+<p>There is also a mirror image: Protest events only appear at roughly a third of the frequency in the turns leading up to catastrophes. A plausible reading is that local politics drops out of the story once larger histories take over: siting fights fire at the same rate before catastrophes as in clean worlds, then thin out afterwards, when there is only fallout left to narrate.</p>
+<h3>What have I learned?</h3>
+<p>The Europe 2032 scenario may be too tightly scripted. The strength of LLM-powered scenario simulations is to use LLMs for judgement and creativity, instead of writing extensive rules and formulas. Where to draw the line is difficult, and the line will shift as (cheap and fast) LLMs become more powerful.</p>
+<p>After a first version of the story was completed, I rebuilt parts of the scenario with a much more capable model, Muse Spark 1.3 Contributor, instead of Qwen (qwen3-235b-a22b-2507). It is likely that the scaffolding could have been loosened up more.</p>
+<p>I still think it makes sense to have explicit percentages for events – not least because it forces the scenario writer to consider probabilities. But my guess is that things modifying the percentages should be kept much more open for the LLM to interpret. &quot;Cooperation around AI safety decreases the risk&quot; instead of &quot;AI safety agreement between the US and China halves the risk&quot;. It would be interesting to build a parallel scenario where the rules are looser, and see where the worlds end up.</p></article>
+  </div>
   <footer class="site">
     <a href="/">Scenario Lab</a>
     <span><a href="https://github.com/Itangalo/scenario-lab">Source on GitHub</a></span>
-    <span><a href="https://github.com/Itangalo/scenario-lab/commit/e1ca783fb54575bd07b2f3c14b58438e10ceac94" title="e1ca783fb">Updated 24 September 2026</a></span>
+    <span><a href="https://github.com/Itangalo/scenario-lab/commit/c9c8bdb6f53fce97b900162800f32ffaf56396a1" title="c9c8bdb6f">Updated 25 September 2026</a></span>
   </footer>
 </div>
 <script>
